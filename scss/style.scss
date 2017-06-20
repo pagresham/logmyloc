@@ -1,0 +1,101 @@
+html, body {
+	backgound-color: black;
+	height: 100%;
+}
+// .ng-scope {
+	// background-color: black;
+// }
+
+// ========  index.php  =========  //
+
+// == Welcome Bar == //
+.welcome-text {
+	background-color: #ccc;
+	height: 1.5em;
+}
+.welcome-l,
+.welcome-r {
+	display: inline-block;
+	
+	
+	// padding: .25em 1em .25em 0;
+}
+.welcome-l {
+	padding-left: .75em;
+}
+.welcome-r {
+	float: right;
+	padding-right: .75em;
+}
+.clock {
+	// background-color: black;
+	// color: white;
+	padding: 0 .25em 0 .25em;
+}
+
+#index-page,
+#newuser-page {
+	background-image: url("../img/mapScreenShot2");
+	background-position: center;
+	height: 100%;
+}
+
+// #log-in {
+	// padding: 1em;
+	// max-height: 100%;	
+	// padding: 1em 1em 1em 1em;
+// }
+
+.log-space {
+	padding: 1em;
+	background-color: rgba(255, 255, 255, .9);
+	border-radius: 1em;
+	margin: auto;
+	max-width: 90%;
+	height: 100%;
+}
+
+#login-form {
+	// text-align:center;
+}
+
+
+.jumbotron.index-jumbo {
+	// background-color: rgba(255, 255, 255, .9);
+	background-color: #555;
+	color: #ccc;
+	padding: 10px;
+}
+#modal-logo {
+	// border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 20px;
+	height: 50px;
+}
+#nav-logo {
+	// border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	height: 22px;
+}
+
+nav.navbar.navbar-inverse {
+	margin: 0;
+}
+
+.errorText {
+	font-size: .75em;
+	color: red;
+}
+
+#map1 {
+	height: 400px; 
+	width: 100%
+}
+
+
+
+
+
+
+
