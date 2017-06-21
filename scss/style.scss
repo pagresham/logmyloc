@@ -43,7 +43,8 @@ html, body {
 
 // Initially hide forms, till they slide into place
 #login,
-#newuser {
+#newuser,
+#locform {
 	display: none;
 }
 
@@ -55,10 +56,11 @@ html, body {
 	margin: auto;
 	max-width: 90%;
 	height: 100%;
+
 }
 
 // Shadow on form sliders
-#login, #newuser {
+#login, #newuser, #locform {
 	box-shadow: 5px 5px 5px #777;
 	// border: 1px solid black;
 }
@@ -112,6 +114,27 @@ nav.navbar.navbar-inverse {
 #map1 {
 	background-color: #eee;
 }
+
+.home-form-div {
+	padding: 1em;
+	background-color: #ccc;
+}
+
+#less-detail-btn {
+	display: none;
+}
+#loc-details {
+	display: none;
+	
+}
+div.well.loc-well {
+	padding: 5px;
+	margin: .5em 0em;
+}
+#locForm button[type=submit] {
+		margin-top: 1em;
+	}
+
 
 
 

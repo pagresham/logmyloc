@@ -81,10 +81,15 @@ homeModule.controller('home.mapCtl', function($scope, $interval, $timeout) {
 				$scope.lat = lt;
 		}, 100)
 	}
+
+	setTimeout(function() {
+		$('#locform').show('slide')
+	}, 500)
 	
-	// listener for update info button
-	$('#scopeBtn').click(function() {
-		console.log($scope)
+	
+	$('#more-detail-btn').click(function() {
+		console.log('clicked')
+		$('#loc-details').toggle('blind');
 	})
 
 
@@ -105,7 +110,7 @@ homeModule.controller('home.mapCtl', function($scope, $interval, $timeout) {
 		var latLng = new google.maps.LatLng(lt,ln);
 		
 		// var marker = new google.maps.Marker()
-
+		$scope.comma = ','
 		$scope.lat = lt;
 		$scope.lng = ln;
 		console.log(lt)
@@ -173,7 +178,7 @@ homeModule.controller('home.mapCtl', function($scope, $interval, $timeout) {
 	function mapInit(loc, city) {
 		var mapOptions = {
 			zoom: 10,
-			// center: new google.maps.LatLng(51.508742,-0.120850)
+			scrollwheel: false,
 			center: loc
 		}
 

@@ -27,7 +27,8 @@ html, body {
   height: 100%; }
 
 #login,
-#newuser {
+#newuser,
+#locform {
   display: none; }
 
 .log-space {
@@ -38,7 +39,7 @@ html, body {
   max-width: 90%;
   height: 100%; }
 
-#login, #newuser {
+#login, #newuser, #locform {
   box-shadow: 5px 5px 5px #777; }
 
 .jumbotron.index-jumbo {
@@ -73,5 +74,22 @@ nav.navbar.navbar-inverse {
 
 #map1 {
   background-color: #eee; }
+
+.home-form-div {
+  padding: 1em;
+  background-color: #ccc; }
+
+#less-detail-btn {
+  display: none; }
+
+#loc-details {
+  display: none; }
+
+div.well.loc-well {
+  padding: 5px;
+  margin: .5em 0em; }
+
+#locForm button[type=submit] {
+  margin-top: 1em; }
 
 /*# sourceMappingURL=style.css.map */
