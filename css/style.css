@@ -38,6 +38,9 @@ html, body {
   max-width: 90%;
   height: 100%; }
 
+#login, #newuser {
+  box-shadow: 5px 5px 5px #777; }
+
 .jumbotron.index-jumbo {
   background-color: #555;
   color: #ccc;

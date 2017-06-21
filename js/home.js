@@ -54,7 +54,7 @@ $(function() {
 var homeModule = angular.module('homeModule', []);
 
 homeModule.controller('home.formCtl', function($scope){
-	console.log('home.formCtl')
+	// console.log('home.formCtl')
 });
 
 homeModule.controller('testctl', function($scope, $timeout, $interval) {
@@ -210,9 +210,9 @@ homeModule.controller('home.mapCtl', function($scope, $interval, $timeout) {
         	console.log('im melting!!!')
         });
 
-        marker.addListener('click', function() {
-        	map.setZoom(12);
-        })
+        // marker.addListener('click', function() {
+        // 	map.setZoom(12);
+        // })
       
       	// Listeners to re-center map when screen size changes  
         var center;
