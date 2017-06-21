@@ -7,15 +7,6 @@ $(function() {
 		$('#tDate').html(setTime())
 	})
 
-
-	
-
-
-
-
-
-
-
 	function checkGeo() {
 		if (navigator.geolocation) {
 			return "True";

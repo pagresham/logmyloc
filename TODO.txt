@@ -1,0 +1,21 @@
+- Migrate site so far onto Userve
+- Host page temporarily with Github
+
+- Possibly resolve 'header' issue
+
+- Build error checking, and database prep for location log screen
+
+- Redesign form, and data input screen for location log screen
+
+
+- Design Admin page
+
+
+- Design interfase to view my past locations, view my friend's past locations.
+
+- Interfase to view locations
+
+
+- Display all users and decide who to allow permissions to.
+
+- Grant user permissions, and display uses who have given me permissions 
