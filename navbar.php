@@ -40,7 +40,14 @@
               print "<li><a href='index.php'><span class='glyphicon glyphicon-log-in'></span> Login</a></li>";
             }
            ?>
-         <div id="detailsModal" class="modal fade" role="dialog">
+         
+          
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div id="detailsModal" class="modal fade" role="dialog">
           <div class="modal-dialog">
               <!-- Modal content-->
             <div class="modal-content">
@@ -60,9 +67,3 @@
               </div>
             </div>
           </div>
-          
-
-        </ul>
-      </div>
-    </div>
-  </nav>

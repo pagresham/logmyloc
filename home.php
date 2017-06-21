@@ -70,9 +70,11 @@ if(isset($_POST['submitLoc'])) {
 					
 					<p>
 						<label for="lat">Latitude:</label>
-						<input type="text" name="lat" id="lat" ng-model="lat" required>
+						<input type="text" name="lat" id="lat" ng-model="lat2" required>
 						<label for="lng">Longitude:</label>
 						<input type="text" name="lng" id="lng" ng-model="lng" required>
+						<!-- <input type="text" name="" ng-model='test1'>
+						<input type="text" name="" ng-model='test'> -->
 					</p>
 					<p>
 						<label for="city">City:</label>

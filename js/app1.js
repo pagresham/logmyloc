@@ -4,11 +4,7 @@ $(function() {
 		var supported = checkGeo();
 		$('#geoSupported').html(supported);
 		var now = new Date();
-		var h = now.getHours();
-		var m = now.getMinutes();
 		$('#tDate').html(setTime())
-		
-
 	})
 
 	function checkGeo() {
@@ -33,10 +29,12 @@ $(function() {
 		console.log('this is app1.js')
 		return today + "  " + h + ":" + m + amPm;
 	}
+
 	function checkTime(i) {
-		    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-		    return i;
-		}
+	    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+	    return i;
+	}
+
 	function checkHour(i) {
 		if (i > 12) {
 			i =  i - 12;
@@ -55,8 +53,6 @@ $(function() {
 
 // alert()
 var app1 = angular.module('app1', []);
-
-
 
 app1.controller('loginFormCtl', function($scope){
 	$scope.username = "";

@@ -78,6 +78,7 @@ homeModule.controller('testctl', function($scope, $timeout, $interval) {
 homeModule.controller('home.mapCtl', function($scope, $interval, $timeout) {
 	$scope.lat = "";
 	$scope.lng = "";
+	$scope.city = "";
 	var lt = "";
 	var ln = "";
 
@@ -106,14 +107,19 @@ homeModule.controller('home.mapCtl', function($scope, $interval, $timeout) {
 
 	function showPosition(position) {
 		
-		lt = position.coords.latitude;
-		ln = position.coords.longitude;
+		var lt = position.coords.latitude;
+		var ln = position.coords.longitude;
 		var latLng = new google.maps.LatLng(lt,ln);
 		
 		// var marker = new google.maps.Marker()
 
 		$scope.lat = lt;
 		$scope.lng = ln;
+		console.log(lt)
+		console.log(ln)
+		console.log('balls')
+		$scope.lat2 = lt;
+
 
 		// create new geocoder
 		var geocoder = new google.maps.Geocoder();
@@ -123,7 +129,7 @@ homeModule.controller('home.mapCtl', function($scope, $interval, $timeout) {
 			if (status == google.maps.GeocoderStatus.OK) {
 				// console.log(results);
 				var addCompArry = results[0].address_components;
-				console.log(addCompArry)
+				// console.log(addCompArry)
 				for(var i = 0; i < addCompArry.length; i++) {
 					if(addCompArry[i].types[0] == 'locality') {
 						// console.log(addCompArry[i].long_name)
@@ -142,15 +148,17 @@ homeModule.controller('home.mapCtl', function($scope, $interval, $timeout) {
 						$scope.zip = addCompArry[i].long_name;
 					}
 				}
+				$scope.lat = lt;
+				$scope.lng = ln;
+				mapInit(latLng);
 			}
 		})
 
-		mapInit(latLng);
 	}
 
 
 	var x = document.getElementById('errorMsg');
-	
+
 	function showError() {
 		switch(error.code) {
 	        case error.PERMISSION_DENIED:
@@ -168,7 +176,7 @@ homeModule.controller('home.mapCtl', function($scope, $interval, $timeout) {
 	    }
 	}
 
-	function mapInit(loc) {
+	function mapInit(loc, city) {
 		var mapOptions = {
 			zoom: 10,
 			// center: new google.maps.LatLng(51.508742,-0.120850)
@@ -176,6 +184,12 @@ homeModule.controller('home.mapCtl', function($scope, $interval, $timeout) {
 		}
 
 		var map = new google.maps.Map($('#map1').get(0), mapOptions);
+
+		var marker = new google.maps.Marker({
+          position: loc,
+          map: map,
+          title: $scope.city + ", " + $scope.state
+        });
 
 	}
 
