@@ -131,7 +131,7 @@ include "navbar.php";
 	<div  id="createUser">
   <?PHP include "infoModal.php" ?>  
 
-	<div class="container-fluid log-space" ng-controller='newUserCtl'>
+	<div class="container-fluid log-space" ng-controller='newUserCtl' id="newuser">
 
 		<form method="post" action="new-user.php" name="newUserForm" >
 			<h2 class="text-center">Create a New User</h2>

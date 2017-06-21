@@ -26,6 +26,10 @@ html, body {
   background-position: center;
   height: 100%; }
 
+#login,
+#newuser {
+  display: none; }
+
 .log-space {
   padding: 1em;
   background-color: rgba(255, 255, 255, 0.9);
@@ -59,5 +63,12 @@ nav.navbar.navbar-inverse {
 #map1 {
   height: 400px;
   width: 100%; }
+
+#img-spinner {
+  margin-top: 2em;
+  margin-left: 45%; }
+
+#map1 {
+  background-color: #eee; }
 
 /*# sourceMappingURL=style.css.map */

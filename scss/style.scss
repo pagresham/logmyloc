@@ -40,11 +40,13 @@ html, body {
 	height: 100%;
 }
 
-// #log-in {
-	// padding: 1em;
-	// max-height: 100%;	
-	// padding: 1em 1em 1em 1em;
-// }
+
+// Initially hide forms, till they slide into place
+#login,
+#newuser {
+	display: none;
+}
+
 
 .log-space {
 	padding: 1em;
@@ -55,10 +57,6 @@ html, body {
 	height: 100%;
 }
 
-#login-form {
-	// text-align:center;
-}
-
 
 .jumbotron.index-jumbo {
 	// background-color: rgba(255, 255, 255, .9);
@@ -66,6 +64,9 @@ html, body {
 	color: #ccc;
 	padding: 10px;
 }
+
+// ===  Image Styling === //
+
 #modal-logo {
 	// border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
@@ -79,6 +80,8 @@ html, body {
 	height: 22px;
 }
 
+// ===  NavBar Styling === //
+
 nav.navbar.navbar-inverse {
 	margin: 0;
 }
@@ -88,10 +91,24 @@ nav.navbar.navbar-inverse {
 	color: red;
 }
 
+// ===  home.php Styling === //
+
 #map1 {
 	height: 400px; 
 	width: 100%
 }
+
+#img-spinner {
+	margin-top: 2em;
+	margin-left: 45%;
+}
+
+#map1 {
+	background-color: #eee;
+}
+
+
+
 
 
 

@@ -52,7 +52,9 @@ if(isset($_POST['submitLoc'])) {
 	header("Location: unset.php");
 }
 
-
+if(!isLoggedIn()) {
+	header("Location: index.php");
+} else {
 ?>
 <div ng-app="homeModule">
 	<div>
@@ -100,12 +102,29 @@ if(isset($_POST['submitLoc'])) {
 				<button class="btn btn-info" id="scopeBtn">Check Scope Contents</button>
 				<p id="errorMsg"></p>
 			</div>
-			<div id="map1"></div>
+
+			
+
+			<div id="map1" style="position: relative">
+				<div id="spinner" style="display: none">
+					<img id="img-spinner" src="ajax-loader.gif" alt="Loading/">
+				</div>
+			</div>
 		</div>
 		
 		
 	</div>
 </div>
+
+
+
+
+<?PHP
+}
+
+
+?>
+
 
 
 	

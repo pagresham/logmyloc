@@ -27,6 +27,8 @@ session_start();
 
 	<!-- Latest compiled JavaScript -->
 	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+	
+	
 
 	<!-- Local Files -->
 	
@@ -35,7 +37,12 @@ session_start();
 	<script src="lib/angular-1.6.4/angular.min.js"></script>
 	<script src="lib/Bootstrap/js/bootstrap.min.js"></script>
 
-
+	<!-- jQuery UI -->
+	<script
+	  src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"
+	  integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk="
+	  crossorigin="anonymous">  	
+	</script>
 
 
 	<!-- <script type="text/javascript" src="js/app.js"></script> -->

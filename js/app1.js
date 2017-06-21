@@ -1,5 +1,12 @@
 $(function() {
 
+	// $('#login').hide();
+
+	
+
+
+
+
 	$('#detailsModalA').click(function() {
 		var supported = checkGeo();
 		$('#geoSupported').html(supported);
@@ -57,6 +64,12 @@ var app1 = angular.module('app1', []);
 app1.controller('loginFormCtl', function($scope){
 	$scope.username = "";
 	console.log($scope.username)
+	
+	setTimeout(function() {
+		$('#login').show('slide')
+	}, 500)
+
+
 });
 
 

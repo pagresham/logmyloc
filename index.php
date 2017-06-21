@@ -91,7 +91,7 @@ include "navbar.php";
       
       <?PHP include "infoModal.php" ?>
 
-      <div class="container-fluid log-space">
+      <div class="container-fluid log-space" id="login">
         <form name="login-form" action="index.php" method="post" id="login-form" ng-controller="loginFormCtl">
           <h2 class="text-center">Log In</h2>
           <p>

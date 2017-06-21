@@ -1,7 +1,9 @@
-- Migrate site so far onto Userve
+
 - Host page temporarily with Github
 
 - Possibly resolve 'header' issue
+
+--- home.php
 
 - Build error checking, and database prep for location log screen
 
