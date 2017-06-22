@@ -24,7 +24,10 @@ html, body {
 #newuser-page {
   background-image: url("../img/mapScreenShot2");
   background-position: center;
-  height: 100%; }
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
 
 #login,
 #newuser,
