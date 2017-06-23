@@ -29,7 +29,7 @@
 
         if (isLoggedIn()) {
               $uid = $_SESSION['u_id'];
-              print "<form action='' method='post' name='anotherForm' class='navbar-form navbar-left navbar-text'>";
+              print "<form action='view.php' method='post' name='anotherForm' class='navbar-form navbar-left'>";
               $sql = "SELECT u.f_name, u.l_name, u.u_name, u.u_id
                       FROM users u
                       JOIN friends f
@@ -40,13 +40,15 @@
                 die("Connection Terminated at SELECT friends: " . $db->error);
               } 
               else {
-                print "<select >'";
+
+                print "<div class='form-group'><select class='form-control'>";
 
                 while($row = mysqli_fetch_assoc($rs)) {
-
+                  print_r($row);
                   print "<option value='".$row['u_id']."'>".$row['f_name'] . " " .$row['l_name'].$row['u_id']."</option>";
                 }
-                print "</select>";
+                print "</select></div>";
+                print "<button  class='btn btn-default ' type='submit' name='submit_friend'>Check On Friends</button>";
 
               }
               print "</form>";
