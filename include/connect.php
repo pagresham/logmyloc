@@ -1,6 +1,6 @@
 <?PHP
 $connectMessage = '';
-$db = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+// $db = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
 $db = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 

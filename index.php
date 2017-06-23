@@ -86,6 +86,7 @@ include "navbar.php";
   
   <!--  -->
   <div ng-app="app1" id="index-page">
+  
 
     <div  id="log-in">
       

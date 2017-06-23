@@ -14,19 +14,47 @@
 
         <?PHP
         print (isLoggedIn()) ? "<li ><a href='home.php'>Home</a></li>" : "";
+        
+
         ?>
+        </ul> 
+
+
+
+        
+
+        <?PHP
+
+        // I could make this work, but I would rather have it be a nice dropdown, or some other cleaner UI component. Tomorrow, Tomorrow, I love you Tomorrow.
+
+        if (isLoggedIn()) {
+              $uid = $_SESSION['u_id'];
+              print "<form action='' method='post' name='anotherForm' class='navbar-form navbar-left navbar-text'>";
+              $sql = "SELECT u.f_name, u.l_name, u.u_name, u.u_id
+                      FROM users u
+                      JOIN friends f
+                      ON u.u_id = f.f_2
+                      WHERE f.f_1 = '$uid'";
+              $rs = $db->query($sql);
+              if (!$rs) {
+                die("Connection Terminated at SELECT friends: " . $db->error);
+              } 
+              else {
+                print "<select >'";
+
+                while($row = mysqli_fetch_assoc($rs)) {
+
+                  print "<option value='".$row['u_id']."'>".$row['f_name'] . " " .$row['l_name'].$row['u_id']."</option>";
+                }
+                print "</select>";
+
+              }
+              print "</form>";
+            }
+        ?>
+
           
-          <!-- <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Page 1-1</a></li>
-              <li><a href="#">Page 1-2</a></li>
-              <li><a href="#">Page 1-3</a></li>
-            </ul>
-          </li> -->
-          <!-- <li><a href="#">Page 2</a></li>
-          <li><a href="#">Page 3</a></li> -->
-        </ul>
+        
         <ul class="nav navbar-nav navbar-right">
           
           <?PHP 
@@ -34,6 +62,7 @@
             print "<li><a id='detailsModalA' data-toggle='modal' data-target='#detailsModal'><span class='glyphicon glyphicon-modal-window'></span> Details</a></li>";
 
             print "<li><a type='submit' value='logout' href='logout.php'><span class='glyphicon glyphicon-log-out'></span> LogOut</a></li>";
+            print "<li ><a href='admin.php'>Admin</a></li>";
             }
             else {
               print "<li><a href='new-user.php'><span class='glyphicon glyphicon-user'></span> Sign Up</a></li>";
