@@ -53,17 +53,8 @@ $(function() {
 
 var homeModule = angular.module('homeModule', []);
 
-homeModule.controller('home.formCtl', function($scope){
-	// console.log('home.formCtl')
-});
 
-homeModule.controller('testctl', function($scope, $timeout, $interval) {
-	// $scope.testinfo = 0;
-	// $interval(function(){
-	// 	$scope.testinfo += 1;
-	// 	if($scope.testinfo % 2 == 0) {console.log('thats odd' + $scope.testinfo)}
-	// }, 1000)
-})
+
 
 
 homeModule.controller('home.mapCtl', function($scope, $interval, $timeout) {
@@ -115,7 +106,6 @@ homeModule.controller('home.mapCtl', function($scope, $interval, $timeout) {
 		$scope.lng = ln;
 		console.log(lt)
 		console.log(ln)
-		console.log('balls')
 		$scope.lat2 = lt;
 
 
@@ -158,21 +148,23 @@ homeModule.controller('home.mapCtl', function($scope, $interval, $timeout) {
 
 	var x = document.getElementById('errorMsg');
 
-	function showError() {
-		switch(error.code) {
-	        case error.PERMISSION_DENIED:
-	            x.innerHTML = "User denied the request for Geolocation."
-	            break;
-	        case error.POSITION_UNAVAILABLE:
-	            x.innerHTML = "Location information is unavailable."
-	            break;
-	        case error.TIMEOUT:
-	            x.innerHTML = "The request to get user location timed out."
-	            break;
-	        case error.UNKNOWN_ERROR:
-	            x.innerHTML = "An unknown error occurred."
-	            break;
-	    }
+	function showError(error) {
+		console.log("Error Code: " + error.code)
+
+		// switch(error.code) {
+	 //        case error.PERMISSION_DENIED:
+	 //            x.innerHTML = "User denied the request for Geolocation."
+	 //            break;
+	 //        case error.POSITION_UNAVAILABLE:
+	 //            x.innerHTML = "Location information is unavailable."
+	 //            break;
+	 //        case error.TIMEOUT:
+	 //            x.innerHTML = "The request to get user location timed out."
+	 //            break;
+	 //        case error.UNKNOWN_ERROR:
+	 //            x.innerHTML = "An unknown error occurred."
+	 //            break;
+	 //    }
 	}
 
 	function mapInit(loc, city) {

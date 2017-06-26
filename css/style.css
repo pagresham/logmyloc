@@ -31,7 +31,8 @@ html, body {
 
 #login,
 #newuser,
-#locform {
+#locform,
+#friendLocTbl {
   display: none; }
 
 .log-space {
@@ -42,8 +43,9 @@ html, body {
   max-width: 90%;
   height: 100%; }
 
-#login, #newuser, #locform {
-  box-shadow: 5px 5px 5px #777; }
+#login, #newuser, #locform, #friendLocTbl {
+  box-shadow: 5px 5px 5px #777;
+  border: 1px solid black; }
 
 .jumbotron.index-jumbo {
   background-color: #555;
@@ -94,5 +96,19 @@ div.well.loc-well {
 
 #locForm button[type=submit] {
   margin-top: 1em; }
+
+#friendLocTbl {
+  width: 100%;
+  padding: 1em; }
+  #friendLocTbl tr:nth-child(odd) {
+    background-color: #ddd; }
+  #friendLocTbl tr {
+    width: 100%; }
+  #friendLocTbl td {
+    padding: .5em; }
+
+.friendLocWell {
+  overflow: scroll;
+  max-height: 10em; }
 
 /*# sourceMappingURL=style.css.map */

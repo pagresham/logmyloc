@@ -48,7 +48,8 @@ html, body {
 // Initially hide forms, till they slide into place
 #login,
 #newuser,
-#locform {
+#locform,
+#friendLocTbl {
 	display: none;
 }
 
@@ -60,14 +61,15 @@ html, body {
 	margin: auto;
 	max-width: 90%;
 	height: 100%;
-
 }
 
 // Shadow on form sliders
-#login, #newuser, #locform {
+#login, #newuser, #locform, #friendLocTbl {
 	box-shadow: 5px 5px 5px #777;
-	// border: 1px solid black;
+	border: 1px solid black;
 }
+
+
 
 
 .jumbotron.index-jumbo {
@@ -139,6 +141,31 @@ div.well.loc-well {
 		margin-top: 1em;
 	}
 
+// ==== View.php  ==== //
+ 
+#friendLocTbl {
+	width: 100%;
+	padding: 1em;
+
+	tr:nth-child(odd) {
+		background-color: #ddd;
+	}
+
+	tr {
+		width: 100%;
+	}
+
+	td {
+		// width: 100%;
+		padding: .5em;
+	}
+}
+
+.friendLocWell {
+	overflow: scroll;
+	max-height: 10em;
+
+}
 
 
 

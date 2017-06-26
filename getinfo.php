@@ -18,10 +18,10 @@ else {
 		$outArr[] = $rs;
 	    if ($outp != "") {$outp .= ",";}
 
-	    $outp .= '{"First":"' . $rs["f_name"] . '",';
-	    $outp .= '"Last":"'  . $rs["l_name"] . '",';
-	    $outp .= '"Username":"'  . $rs["u_name"] . '",';
-	    $outp .= '"Id":"'   . $rs["u_id"] . '"}';
+	    $outp .= '{"f_name":"' . $rs["f_name"] . '",';
+	    $outp .= '"l_name":"'  . $rs["l_name"] . '",';
+	    $outp .= '"u_name":"'  . $rs["u_name"] . '",';
+	    $outp .= '"u_id":"'   . $rs["u_id"] . '"}';
 	    
 	   
 	}

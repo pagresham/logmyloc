@@ -55,8 +55,10 @@ session_start();
 	</script>" : ""; ?>
 	<?PHP print (strpos($_SERVER['PHP_SELF'], '/admin.php')) ? "<script type='text/javascript' src='js/admin.js'>
 	</script>" : ""; ?>
+	<?PHP print (strpos($_SERVER['PHP_SELF'], '/view.php')) ? "<script type='text/javascript' src='js/view.js'>
+	</script>" : ""; ?>
 	
-	</script>
+	
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 

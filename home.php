@@ -96,14 +96,13 @@ if(isset($_POST['submitLoc'])) {
 					'$comments', '$title')";
 
 		if($db->query($insertQ) == true) {
-			print_r("Successful Insert!");
+			// print_r("Successful Insert!");
 			header("Location: unset.php");
 		}
 		else {
 			$dbError = "There was an error at the insert!<br>";
 			$dbError .= "<br>Error: " . $insertQ . "<br>" . $db->error;
 		}
-
 	} 
 
 	

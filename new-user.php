@@ -15,7 +15,7 @@ if(isset($_POST['create'])) {
 		}
 		else {
 			if(!preg_match("/^[a-zA-Z0-9'-.@_]{8,}$/", $u_name)) {
-				$errors['u_name'] = "Invalid username2";
+				$errors['u_name'] = "Invalid username. Please use numbers and letters, and a minimum of 8 characters.";
 			}
 			else if (strlen($u_name) > 45) {
 				$error['u_name'] = "Invalid Username3";
@@ -115,8 +115,19 @@ if(isset($_POST['create'])) {
   				die("Connection Terminated at User Insert: " . $db->error);
   			}
   			else {
-  				// print "new user submitted";
-  				header("Location: index.php");
+  				$lastId = $db->insert_id;
+  				$supplementalQuery = "INSERT INTO friends
+  										(f_1, f_2)
+  										VALUES ('$lastId', '$lastId')";
+
+  				if($db->query($supplementalQuery)) {
+  					// print "new user submitted";
+  					header("Location: index.php");
+  				}
+  				else {
+  					die("Connection Terminated at User Insert2: " . $db->error);
+  				}
+  				
   			}
   		}
   	}
