@@ -3,8 +3,7 @@
 include "header.php";
 
 $logInError = false;
-$username =$password = "";
-
+$username =$password =$errorMsg = "";
 if(isset($_POST['login'])) {
   // Start username processing
   if(!empty($_POST['username'])) {
@@ -12,17 +11,20 @@ if(isset($_POST['login'])) {
 
     if(!strlen(trim($username)) == 0) {
       
-      if(!preg_match("/^[a-zA-Z-.@_]{8,}$/", $username) || (strlen($username) > 45)) {
+      if(!preg_match("/^[a-zA-Z0-9.@_-]{8,}$/", $username) || (strlen($username) > 45)) {
         $logInError = true;
+        $errorMsg = "Failed Preg_match";
       }
     }
     else{
       $logInError = true;
+      $errorMsg = "Blank";
       print 'strlen is 0';
     } 
   }
   else {
     $logInError = true;
+     $errorMsg = "Empty";
   }
   // End username processing
   
@@ -32,10 +34,12 @@ if(isset($_POST['login'])) {
     print_r($password."<br>");
     if(!strlen(trim($password)) === 0 || (strlen($password) > 45)) {
       $logInError = true;
+       $errorMsg = "No Match";
     }
   }
   else {
     $logInError = true;
+     $errorMsg = "Empty Pw";
   }
   // end password processing
   
@@ -68,6 +72,7 @@ if(isset($_POST['login'])) {
       }
       else {
         print_r("Things are bad ");
+         $errorMsg = "No Match";
         $logInError = true;
       }
   
@@ -102,7 +107,7 @@ include "navbar.php";
           <p>
             <label for="password">Password:</label>
             <input class="form-control" type="password" name="password" id="password" required ng=model="password">
-            <?PHP print ($logInError) ? "<small class='errorText'>There was a problem with your login information.</small>" : "" ?>
+            <?PHP print ($logInError) ? "<small class='errorText'>There was a problem with your login information.</small>" : "" ; print $errorMsg; ?>
           </p>
           <p class="text-center">
             <input class="btn btn-info" type="submit" name="login" value="Login">

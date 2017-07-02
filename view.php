@@ -28,10 +28,16 @@ if(isset($_POST['submit_friend'])) {
 			die("Connection Terminated at friend log SELECT: " . $db->error);
 		}
 		else {
-			while ($row = mysqli_fetch_assoc($rs)) {
-				$fLocs[] = $row;
+			if ($rs->num_rows > 0){
+				
+				while ($row = mysqli_fetch_assoc($rs)) {
+					$fLocs[] = $row;
+				}
 			}
-			// print_r($friendLocs);
+			else {
+				$errorMsg = "Sorry, this User hasn't recorded any locations yet.";
+			}
+			
 		}
 	}
 }
@@ -41,55 +47,72 @@ if(isset($_POST['submit_friend'])) {
 ?>
 <div ng-app="view">
 	<div ng-controller="view.ctl1">
-	<div class="home-form-div">
+	<div class="home-form-div map-bkg">
 		<div class="log-space" id="friendLocTbl">
 			<?PHP
-				$f_name = $fLocs[0]['f_name'];
-				$l_name = $fLocs[0]['l_name'];
-				print "<p>Locations for: <span ng-init='firstName=\"" . $f_name . "\"'>{{ firstName }} </span><span ng-init='lastName=\"" . $l_name . "\"'>{{ lastName }}</spam>";
-			?>
 				
-			<div class="well friendLocWell">
+			
 				
-				<?PHP
-				$id = "";
-				print "<table>";
-				for($i = 0; $i < count($fLocs); $i++){
-					$id = $i;
-					print "<tr>";
-					print "<td ng-init='fLocs[".$id ."].city=\"".$fLocs[$id]['city']."\"'>".$fLocs[$id]['city']."</td>";
+				
+				
+				if(count($fLocs) > 0) {
+					$first =$last = "";
+					$dateRangeQuery = "SELECT date(min(time)) AS first, date(max(time)) AS last from logs
+						WHERE u_id = $friendId";
 
-					print "<td ng-init='fLocs[".$id ."].state=\"".$fLocs[$id]['state']."\"'>".$fLocs[$id]['state']."</td>";
+					$rs = $db->query($dateRangeQuery);
 
-					print "<td ng-init='fLocs[".$id ."].time=\"".$fLocs[$id]['time']."\"'>".$fLocs[$id]['time']."</td>";
-
-					print "<td class='hide' ng-init='fLocs[".$id ."].lat=\"".$fLocs[$id]['lat']."\"'>".$fLocs[$id]['lat']."</td>";
-
-					print "<td class='hide' ng-init='fLocs[".$id ."].lng=\"".$fLocs[$id]['lng']."\"'>".$fLocs[$id]['lng']."</td>";
-
-
-
-					print "<td><button class='showLocBtn mapMe btn btn-default btn-xs' id='".$id."'>MapMe</button></td>";
+					if(!$rs) {
+						die("Connection Terminatedat Select min/max date: " . $db->error);
+					}
+					else {
+						$row = mysqli_fetch_assoc($rs);
+						$first = $row['first'];
+						$last = $row['last'];
+					}
 
 
-					print "</tr>";
+					$f_name = $fLocs[0]['f_name'];
+					$l_name = $fLocs[0]['l_name'];
+					print "<div class=''>Locations for: <b><span ng-init='firstName=\"" . $f_name . "\"'>{{ firstName }} </span><span ng-init='lastName=\"" . $l_name . "\"'>{{ lastName }}</span></b></div><div class='text-right'><b>From: </b>" . $first . " <b>To: </b>" . $last . "</div>";
+
+					print "<div style='padding: 0 1em; margin: .5em 1em; '><table style=''><tr><th>City</th><th>State</th><th>Time</th><th>this</th></tr></table></div>";
+					print "<div class='well friendLocWell'>";
+				
+					$id = "";
+					print "<table>";
+
+					for($i = 0; $i < count($fLocs); $i++){
+						$id = $i;
+						print "<tr>";
+						print "<td ng-init='fLocs[".$id ."].city=\"".$fLocs[$id]['city']."\"'>".$fLocs[$id]['city']."</td>";
+
+						print "<td ng-init='fLocs[".$id ."].state=\"".$fLocs[$id]['state']."\"'>".$fLocs[$id]['state']."</td>";
+
+						print "<td ng-init='fLocs[".$id ."].time=\"".$fLocs[$id]['time']."\"'>".$fLocs[$id]['time']."</td>";
+
+						print "<td class='hide' ng-init='fLocs[".$id ."].lat=\"".$fLocs[$id]['lat']."\"'>".$fLocs[$id]['lat']."</td>";
+
+						print "<td class='hide' ng-init='fLocs[".$id ."].lng=\"".$fLocs[$id]['lng']."\"'>".$fLocs[$id]['lng']."</td>";
+
+
+						print "<td><button class='showLocBtn mapMe btn btn-default btn-xs' id='".$id."'>MapMe</button></td>";
+
+
+						print "</tr>";
+					}
+					print "</table>";
+				}
+				else {
+					print "<div>";
+					if (!empty($errorMsg)) {
+						print "<p>" . $errorMsg . "</p>";
+					}
 				}
 
-
-
-				// foreach ($fLocs as $key => $value) {
-				// 	print "<tr>";
-				// 	print "<td>". $value['time'] ."</td><td>". $value['city'] ."</td><td>". $value['state'] ."</td>";
-
-
-				// 	print "<td><button class='mapMe' class='btn btn-xs btn-default' ng-click='show()'>MapMe</button></td>";
-
-
-
-				// 	print "</tr>";
-				// }
+				
 				?>
-				</table>
+				
 			</div>
 		</div>
 	</div>

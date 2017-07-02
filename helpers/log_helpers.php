@@ -21,16 +21,43 @@ function isLoggedIn() {
 function logmyloc_header($title){
 	print "<div data-role='header'>";
 	print "<h1>".$title."</h1>";
-	// print "<div data-role='navbar'>
-	// 	      	<ul>";
-	// print "<li><a href='#home-page'>Home</a></li>
-	// 		        <li><a class='large-text' href='#add-page'>&#43;</a></li>
-	// 		        <li><a class='large-text' href='#sub-page'>&#8722;</a></li>
-	// 		        <li><a class='large-text' href='#mul-page'>&#120;</a></li>
-	// 		        <li><a class='large-text' href='#div-page'>&#247;</a></li>";
-
-	// print "</ul></div>"; // End navbar
 	print "</div>"; // End data-role="header"
 } 
+
+
+// A function to return an object containing a list of friends of the currently logged user
+// @currendId - currently logged in user - as seen in $_SESSION('u_id')
+// $db - the database hook
+function getFriends($currentId, $db) {
+	$query = "SELECT * from users 
+		JOIN friends
+		ON friends.f_2 = users.u_id
+		WHERE friends.f_1 = $currentId";
+
+	$result = $db->query($query);
+	if(!$result) {
+		die("Terminated" . $db->error);
+	}
+	$outArr = array();
+	while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+		$outArr[] = $rs;
+	}
+	return $outArr;
+}
+
+
+
+function getUsers($db) {
+	$result = $db->query("SELECT * from users ORDER BY u_name");
+	if(!$result) {
+		die("Terminated" . $db->error);
+	}
+	
+	$outArr = array();
+	while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+		$outArr[] = $rs;   
+	}
+	return $outArr;
+}
 
 ?>

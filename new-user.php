@@ -86,6 +86,20 @@ if(isset($_POST['create'])) {
     	$errors['password2'] = "Plese re-enter you password";
   	}
 
+  	// Check if username is already in use //
+  	$sql = "SELECT * FROM users WHERE u_name = '$u_name'";
+  	$rs = $db->query($sql);
+  	if(!$rs) {
+  		die("Terminated: " . $db->error);
+  	}
+  	else {
+  		$num_row = mysqli_num_rows($rs);
+  		if($num_row > 0) {
+  			print "Greater than zero!!!";
+  			$errors['u_name'] = "The Username chosen is already in use";
+  		}
+  	}
+
   	$errorCount = count($errors);
   	if ($errorCount > 0) {
   		// print "<small class='errorText'>There are errors. Please make corrections and try again</small>";

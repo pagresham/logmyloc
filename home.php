@@ -123,7 +123,7 @@ if(!isLoggedIn()) {
 
 			
 
-			<div class="home-form-div">
+			<div class="home-form-div  map-bkg">
 				<div class="log-space" id="locform">
 					<form name="locForm" method="post" action="home.php" id="locForm">
 						

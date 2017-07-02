@@ -21,13 +21,17 @@ html, body {
   padding: 0 .25em 0 .25em; }
 
 #index-page,
-#newuser-page {
+#newuser-page,
+#map-bkg {
   background-image: url("../img/mapScreenShot2");
   background-position: center;
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover; }
+
+.map-bkg {
+  background: linear-gradient(#222, #666); }
 
 #login,
 #newuser,
@@ -43,9 +47,8 @@ html, body {
   max-width: 90%;
   height: 100%; }
 
-#login, #newuser, #locform, #friendLocTbl {
-  box-shadow: 5px 5px 5px #777;
-  border: 1px solid black; }
+#login, #newuser, #locform, #friendLocTbl, #adminTable {
+  box-shadow: 5px 5px 5px #777; }
 
 .jumbotron.index-jumbo {
   background-color: #555;
@@ -71,7 +74,8 @@ nav.navbar.navbar-inverse {
 
 #map1 {
   height: 400px;
-  width: 100%; }
+  width: 100%;
+  border-top: 4px solid #444; }
 
 #img-spinner {
   margin-top: 2em;
@@ -98,17 +102,56 @@ div.well.loc-well {
   margin-top: 1em; }
 
 #friendLocTbl {
+  font-size: .75em;
   width: 100%;
   padding: 1em; }
+  #friendLocTbl table {
+    width: 100%; }
   #friendLocTbl tr:nth-child(odd) {
     background-color: #ddd; }
-  #friendLocTbl tr {
-    width: 100%; }
   #friendLocTbl td {
+    min-width: 100%;
     padding: .5em; }
 
 .friendLocWell {
   overflow: scroll;
-  max-height: 10em; }
+  max-height: 10em;
+  margin-bottom: 0; }
+
+.nav-input {
+  height: 2em;
+  padding: 0 1em;
+  margin-right: .5em; }
+
+.friendClass {
+  background-color: lightgreen; }
+
+.noFriendClass {
+  background-color: transparent; }
+
+table.userPermTable {
+  max-width: 100%; }
+  table.userPermTable td {
+    padding: .25em .5em;
+    border-bottom: 1px solid #333; }
+
+.userPermTable button {
+  min-width: 5em; }
+
+@media only screen and (max-width: 25em) {
+  .hide750 {
+    display: none; }
+
+  #adminTable tr, #adminTable td {
+    width: 100%; } }
+#adminTable form {
+  display: inline-block;
+  margin: auto; }
+
+.modal-content {
+  background-color: #afc8c9; }
+
+.modal-header {
+  background-color: #85a0c1; }
 
 /*# sourceMappingURL=style.css.map */

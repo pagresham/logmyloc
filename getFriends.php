@@ -1,5 +1,5 @@
 <?PHP
-// This script returns a json object of all of the users in the database. // 
+// This script returns an object containing all of the friends of the 'current user'  //
 
 require('include/config.php');
 
@@ -10,7 +10,13 @@ if($conn->connect_error) {
 }
 else {
 	//$result = mysqli_query($db, "SELECT * from users");
-	$result = $conn->query("SELECT * from users");
+	$currentUser = 13;
+	$query = "SELECT * from users 
+		JOIN friends
+		ON friends.f_2 = users.u_id
+		WHERE friends.f_1 = $currentUser";
+
+	$result = $conn->query($query);
 	if(!$result) {
 		die("Terminated" . $conn->error);
 	}
@@ -23,27 +29,24 @@ else {
 	    $outp .= '{"f_name":"' . $rs["f_name"] . '",';
 	    $outp .= '"l_name":"'  . $rs["l_name"] . '",';
 	    $outp .= '"u_name":"'  . $rs["u_name"] . '",';
-	    $outp .= '"u_id":"'   . $rs["u_id"] . '"}';
+	    $outp .= '"friend_id":"'   . $rs["u_id"] . '"}';
 	}
 
-	$outp ='{"Users":['.$outp.']}';
+	$outp ='{"Friends":['.$outp.']}';
 	$conn->close();
 	echo $outp;
-	
 }
 
-function getUsers($db) {
-	$result = $db->query("SELECT * from users");
-	if(!$result) {
-		die("Terminated" . $db->error);
-	}
-	$outp = "";
-	$outArr = array();
-	while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
-		$outArr[] = $rs;   
-	}
-	return $outp;
-}
-	
+
+
+
+
+
+
+
+
+
+
+
 
 ?>
