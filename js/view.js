@@ -29,14 +29,6 @@ view.controller('view.ctl1', function($scope, $timeout) {
 		
 	})
 
-	// function show() {
-		
-	// }
-
-
-
-
-
 
 	$('#spinner').show();
 

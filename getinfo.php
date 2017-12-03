@@ -32,18 +32,7 @@ else {
 	
 }
 
-function getUsers($db) {
-	$result = $db->query("SELECT * from users");
-	if(!$result) {
-		die("Terminated" . $db->error);
-	}
-	$outp = "";
-	$outArr = array();
-	while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
-		$outArr[] = $rs;   
-	}
-	return $outp;
-}
+
 	
 
 ?>

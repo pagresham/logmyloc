@@ -55,8 +55,6 @@ var homeModule = angular.module('homeModule', []);
 
 
 
-
-
 homeModule.controller('home.mapCtl', function($scope, $interval, $timeout) {
 	$scope.lat = "";
 	$scope.lng = "";

@@ -6,7 +6,5 @@ newUser.controller('newUserCtl', function($scope) {
 		$('#newuser').show('slide');
 	}, 1000)
 	
-
-	// alert('i work')
 })
 
